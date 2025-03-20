@@ -7,7 +7,6 @@ public class PassosKm {
 
   public static void main(String[] args) throws Exception {
 
-    DecimalFormat df = new DecimalFormat("#.##");
     Double km, passos;
     long rpassos;
 
