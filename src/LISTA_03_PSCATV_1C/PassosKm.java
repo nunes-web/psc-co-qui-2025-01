@@ -15,7 +15,7 @@ public class PassosKm {
       System.out.println("Digite a distância em quilometros Km:");
       km = scanner.nextDouble();
 
-      passos = km / 0.82;
+      passos = km * 1000 / 0.82;
       rpassos = (long) Math.ceil(passos);
 
       System.out.println("A quantidade de passos para percorrer " + km + " Km, são: " + rpassos + " passo(s)");
