@@ -17,18 +17,16 @@
 - 🏫 Faculdade: Centro Universitário UNA de Contagem
 - 📖 Curso: Análise e Desenvolvimento de Software
 - 🗃️ Período: 2º / 5º
-- 📚 Atividade: psc-lista-01-2025
+- 📚 Atividade: psc-co-qui-2025-01
 
 <h2 id="tech">👨‍💻 Tecnologias</h2>
 
 - Java
-- Portugol
 
 <h3>IDEs Utilizadas</h3>
 
 - Visual Studio Code
-- Portugol Studio
-  
+    
 <h2 id="colab">🤝 Colaboradores</h2>
 
 Agradecimentos ao meu grupo de estudos da faculdade.
