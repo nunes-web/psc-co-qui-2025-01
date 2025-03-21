@@ -3,6 +3,7 @@ package LISTA_03_PSCATV_1C;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
@@ -18,10 +19,19 @@ public class AnosDias {
             LocalDate dataAtual = LocalDate.now();
             Period idade;
 
-            System.out.print("Digite o ano de nascimento (DD/MM/YYYY): ");
-            dataNascIn = scanner.nextLine();
+            while (true) {
+                System.out.print("Digite o ano de nascimento (DD/MM/YYYY): ");
+                dataNascIn = scanner.nextLine();
+                try {
+                    dataNasc = LocalDate.parse(dataNascIn, dataFormat);
+                    break;
+                } catch (DateTimeParseException e) {
 
-            dataNasc = LocalDate.parse(dataNascIn, dataFormat);
+                    System.out.println("Formato de data inválido. Por favor, use DD/MM/YYYY...");
+                }
+
+            }
+
             idade = Period.between(dataNasc, dataAtual);
             idadeDias = (int) ChronoUnit.DAYS.between(dataNasc, dataAtual);
 

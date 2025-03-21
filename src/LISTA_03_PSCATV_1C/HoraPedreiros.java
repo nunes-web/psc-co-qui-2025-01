@@ -10,25 +10,27 @@ public class HoraPedreiros {
         try (Scanner scanner = new Scanner(System.in)) {
 
             String horasExecStr;
-            int pedreiros, horasIn = 72;
-            double m2Muro, horasExec;
+            int horasExecInt, minExecInt;
+            double m2Muro, horasExec, pedreiros, horasBase = 1.152;
             LocalTime horasExecLT;
             DateTimeFormatter horasFormat;
 
+            // Entradas do usuário
             System.out.println("Digite o tamanho do muro em metros quadrados (m²): ");
             m2Muro = scanner.nextDouble();
 
             System.out.println("\nDigite quantos pedreiros estão disponíveis para a obra: ");
             pedreiros = scanner.nextInt();
 
-            horasExec = pedreiros * horasIn * m2Muro / 10;
+            // Calculo de horas para executar o muro
+            horasExec = m2Muro / pedreiros * horasBase;
 
             // Convertendo horasExec para horas e minutos
-            int horas = (int) horasExec;
-            int minutos = (int) ((horasExec - horas) * 60);
+            horasExecInt = (int) horasExec;
+            minExecInt = (int) ((horasExec - horasExecInt) * 60);
 
             // Criando um objeto LocalTime
-            horasExecLT = LocalTime.of(horas, minutos);
+            horasExecLT = LocalTime.of(horasExecInt, minExecInt);
 
             // Formatando a hora
             horasFormat = DateTimeFormatter.ofPattern("HH:mm");
@@ -37,6 +39,7 @@ public class HoraPedreiros {
             System.out.println("Com: " + pedreiros
                     + " demorará: " + horasExecStr
                     + " para construir um muro de: " + m2Muro + " m²");
+
         }
     }
 

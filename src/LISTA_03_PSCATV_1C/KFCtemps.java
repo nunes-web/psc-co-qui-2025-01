@@ -1,20 +1,18 @@
 package LISTA_03_PSCATV_1C;
 
 import java.text.DecimalFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class KFCtemps {
 
     public static void main(String[] args) throws Exception {
 
-        double k = 0, f = 0, c = 0;
+        double k, f, c;
         long tempScanner;
         int entrada;
         DecimalFormat df = new DecimalFormat("#.##");
         String fk, ff, fc;
-        fk = df.format(k) + " °K";
-        ff = df.format(f) + " °F";
-        fc = df.format(c) + " °C";
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("\nBem-vindo ao Conversor KFC de temperatura");
@@ -26,13 +24,19 @@ public class KFCtemps {
                         + "[3] Celsius Cº\n"
                         + "\n========================================\n"
                         + "Selecione a temperatura de entrada [1 - 3]");
-                entrada = scanner.nextInt();
-
-                if (entrada < 0 || entrada > 3) {
-                    System.out.println("Unidade inválida, tente novamente:");
+                while (true) {
+                    try {
+                        entrada = scanner.nextInt();
+                        {
+                            break;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Entrada inválida. Por favor, insira um número entre 1 e 3.");
+                        scanner.next(); // Limpa a entrada inválida
+                    }
                 }
 
-            } while (entrada < 0 || entrada > 3);
+            } while (entrada < 1 || entrada > 3);
 
             System.out.println("Digite o valor da temperatura:");
             tempScanner = scanner.nextLong();
@@ -42,6 +46,9 @@ public class KFCtemps {
                     k = tempScanner;
                     c = k - 273.15;
                     f = (k - 273.15) * 9 / 5 + 32;
+                    fk = df.format(k) + " °K";
+                    ff = df.format(f) + " °F";
+                    fc = df.format(c) + " °C";
                     System.out.println("\nA conversão de: " + fk + " é:\n"
                             + "Celsius: " + fc + "\n"
                             + "Fahrenheit: " + ff + "\n");
@@ -50,6 +57,9 @@ public class KFCtemps {
                     f = tempScanner;
                     c = (f - 32) * 5 / 9;
                     k = (f - 32) * 5 / 9 + 273.15;
+                    fk = df.format(k) + " °K";
+                    ff = df.format(f) + " °F";
+                    fc = df.format(c) + " °C";
                     System.out.println("\nA conversão de: " + ff + " é:\n"
                             + "Celsius: " + fc + "\n"
                             + "Kelvin: " + fk + "\n");
@@ -58,6 +68,9 @@ public class KFCtemps {
                     c = tempScanner;
                     k = c + 273.15;
                     f = (c * 9 / 5) + 32;
+                    fk = df.format(k) + " °K";
+                    ff = df.format(f) + " °F";
+                    fc = df.format(c) + " °C";
                     System.out.println("\nA conversão de: " + fc + " é:\n"
                             + "Fahrenheit: " + ff + "\n"
                             + "Kelvin: " + fk + "\n");
