@@ -14,7 +14,7 @@
 	"editor.fontLigatures": true,
 	"editor.formatOnSave": true,
 	"editor.minimap.enabled": false,
-	"editor.suggestSelection": "first",
+	"editor.suggestSelection": "recentlyUsed",
 	"editor.tabSize": 2,
 	"editor.rulers": [
 		80,
